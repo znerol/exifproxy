@@ -34,4 +34,4 @@ jobs:
         distributions: sdist bdist_wheel
         username: "__token__"
         password:
-          secure: FIXME
+          secure: oHYmwt2wXMqre0REvsqCa3j+M2a/jhfstWZfn/O7fZ7WPzNi74MuHGxWctxVOcla0RFM7d06ewGP+3y9Uw7/l/6rYykYT3faFmfV9Vl+rXQzu9gnR8w4RwkC6Dd/Wo12N40xFF811qgUJkN9xUDZ8g0uTZCCu3cmk+kU/WKVngaF3oRbF+VY3SSMGQk1nXndbK7LyGjCnN6Ovo0uHzFBAqi/TCKH9CLROqJhKBG1YNzGuZyz/SBcGkdeeu7UfCjQLwlkXlMyKMCgBQtCguKbmbxLe1OvQ/H+JFf7B+OpjGDcQCnWEIfWYfGZmf2DcUCKoRDNOCkS1aXXVdlG9DUzuCq6lVjXfCV43jhDmfNGjoubXO5M8ui/LTcpnWya2Fj8igfrfHeT0TCtDBrHGTOFsfbfC5TbaKzzY5vuE79QgEKSsCN8xMRlwG9/ZCddsI+4qGvUNOAaHXSxvjLQ0v3JOVSU/gLIKzwtjjCuucGr3YLlApJwCXP26Z7e32UqJlzGmFShed4awLgedIiMmtjjdj6nx0tEZzbbCG1ZLEpDX50I4iYuwchRgUlJFpEdFSzJWVmged7GZh2LEryMhwcm0LhdfwaDGW6yBqV71BrciC4bEH/SCOLdOSUoeYM3C0dh3Yk1mMxbnFv43TLfyIKm7IzQWkS7Jctin6/2blsKWtQ=
