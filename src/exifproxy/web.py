@@ -1,10 +1,11 @@
 from tempfile import NamedTemporaryFile
-from twisted.internet import defer, protocol
+from twisted.internet import defer, protocol, threads
 from twisted.logger import Logger
 from twisted.python.compat import urlquote
 from twisted.web import http, resource, server
 from urllib.parse import urlsplit
 import os
+import shutil
 
 
 class ExtractionProxyClient(http.HTTPClient):
@@ -43,7 +44,14 @@ class ExtractionProxyClient(http.HTTPClient):
 
         # Body
         self.downstream.content.seek(0, 0)
-        self.transport.write(self.downstream.content.read())
+        self.log.debug(f"start sending request body")
+        threads.deferToThread(
+            shutil.copyfileobj, self.downstream.content, self.transport
+        ).addCallback(lambda _: self.log.debug(
+            f"request body sent")
+        ).addErrback(lambda error: self.log.failure(
+            f"request body failed to send", failure=error)
+        )
 
     def handleStatus(self, version, code, message):
         self._response_capture = (int(code) == 200)
