@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="exifproxy",
-    version="1.0.0",
+    version="1.0.1",
     description="Metadata extraction reverse proxy based on twisted and exiftool",
     author="Lorenz Schori",
     author_email="lo@znerol.ch",
