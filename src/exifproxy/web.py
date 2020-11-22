@@ -36,7 +36,8 @@ class ExtractionProxyClient(http.HTTPClient):
 
         strip_headers = [
             b"host", b"connection", b"proxy-connection", b"keep-alive"]
-        for header, values in self.downstream.requestHeaders.getAllRawHeaders():
+        request_headers = self.downstream.requestHeaders.getAllRawHeaders()
+        for header, values in request_headers:
             if header.lower() not in strip_headers:
                 for value in values:
                     self.sendHeader(header, value)
@@ -44,13 +45,13 @@ class ExtractionProxyClient(http.HTTPClient):
 
         # Body
         self.downstream.content.seek(0, 0)
-        self.log.debug(f"start sending request body")
+        self.log.debug("start sending request body")
         threads.deferToThread(
             shutil.copyfileobj, self.downstream.content, self.transport
         ).addCallback(lambda _: self.log.debug(
-            f"request body sent")
+            "request body sent")
         ).addErrback(lambda error: self.log.failure(
-            f"request body failed to send", failure=error)
+            "request body failed to send", failure=error)
         )
 
     def handleStatus(self, version, code, message):
