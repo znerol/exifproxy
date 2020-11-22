@@ -35,9 +35,10 @@ class ExtractionProxyClient(http.HTTPClient):
 
         strip_headers = [
             b"host", b"connection", b"proxy-connection", b"keep-alive"]
-        for header, value in self.downstream.requestHeaders.getAllRawHeaders():
+        for header, values in self.downstream.requestHeaders.getAllRawHeaders():
             if header.lower() not in strip_headers:
-                self.sendHeader(header, value)
+                for value in values:
+                    self.sendHeader(header, value)
         self.endHeaders()
 
         # Body
