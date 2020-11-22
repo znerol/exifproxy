@@ -4,6 +4,7 @@ setup(
     name="exifproxy",
     version="1.0.1",
     description="Metadata extraction reverse proxy based on twisted and exiftool",
+    long_description=open('README.rst').read(),
     author="Lorenz Schori",
     author_email="lo@znerol.ch",
     url="https://github.com/znerol/exifproxy",
